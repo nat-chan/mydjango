@@ -25,15 +25,7 @@ DEBUG = False
 
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# 開発環境のsecret.pyから読みだす
-
-try :
-    # local 環境
-    __import__(str(BASE_DIR/'secret'))
-    from secret import DEBUG, SECRET_KEY
-except ImportError:
-    # production環境
-    pass
+from mysite.secret import SECRET_KEY, DEBUG
 
 ALLOWED_HOSTS = []
 
@@ -47,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'blog.apps.AppConfig',
+    'blog.apps.BlogConfig',
 ]
 
 MIDDLEWARE = [
@@ -114,9 +106,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ja'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Tokyo'
 
 USE_I18N = True
 
